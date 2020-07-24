@@ -1,5 +1,7 @@
 body {
   background: hsl(260, 60%, 10%);
+  font-size: 4rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #container {
@@ -20,4 +22,23 @@ body {
   column-gap: 1rem;
   row-gap: 1rem;
   border-radius: 2%;
+  padding: 2rem;
+}
+
+#screen {
+  grid-area: screen;
+  text-align: end;
+  background: white;
+}
+
+#clear {
+  grid-area: clear;
+}
+
+#zero {
+  grid-area: zero;
+}
+
+#enter {
+  grid-area: enter;
 }
