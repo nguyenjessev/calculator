@@ -1,0 +1,15 @@
+body {
+
+}
+
+#container {
+    background: hsl(310, 100%, 80%);
+    width: 400px;
+    height: 600px;
+    margin: 3rem auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
