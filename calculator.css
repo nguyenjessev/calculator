@@ -1,15 +1,23 @@
 body {
-
+  background: hsl(260, 60%, 10%);
 }
 
 #container {
-    background: hsl(310, 100%, 80%);
-    width: 400px;
-    height: 600px;
-    margin: 3rem auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    column-gap: 1rem;
-    row-gap: 1rem;
+  background: hsl(260, 50%, 30%);
+  width: 400px;
+  height: 600px;
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas:
+    'screen screen screen screen'
+    'clear clear divide multiply'
+    'seven eight nine minus'
+    'four five six plus'
+    'one two three plus'
+    'zero zero decimal enter';
+  column-gap: 1rem;
+  row-gap: 1rem;
+  border-radius: 2%;
 }
