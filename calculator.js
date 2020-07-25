@@ -103,6 +103,13 @@ decimalButton.addEventListener('click', e => {
   addDecimal();
 });
 
+const equalsButton = document.querySelector('#enter');
+equalsButton.addEventListener('click', e => {
+  if (pendingOperation) {
+    if (currentValue !== 0) operate(pendingOperation, memory, currentValue);
+  }
+});
+
 let memory = 0;
 let currentValue = 0;
 let pendingOperation = '';
