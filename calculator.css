@@ -25,6 +25,21 @@ body {
   padding: 2rem;
 }
 
+.btn {
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number {
+  background: hsl(215, 80%, 70%);
+}
+
+.op {
+  background: hsl(305, 80%, 70%);
+}
+
 #screen {
   grid-area: screen;
   text-align: end;
@@ -33,6 +48,7 @@ body {
 
 #clear {
   grid-area: clear;
+  background: hsl(50, 70%, 60%);
 }
 
 #zero {

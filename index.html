@@ -3,22 +3,23 @@
   <head>
     <link href="normalize.css" rel="stylesheet">
     <link href="calculator.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
     <div id="container">
       <div id="screen">0</div>
       <div id="clear" class="btn">C</div>
-      <div id="divide" class="btn">%</div>
-      <div id="multiply" class="btn">*</div>
+      <div id="divide" class="btn op" data-value="divide">/</div>
+      <div id="multiply" class="btn op" data-value="multiply">*</div>
       <div id="seven" class="number btn" data-value=7>7</div>
       <div id="eight" class="number btn" data-value=8>8</div>
       <div id="nine" class="number btn" data-value=9>9</div>
-      <div id="minus" class="btn">-</div>
+      <div id="subtract" class="btn op" data-value="subtract">-</div>
       <div id="four" class="number btn" data-value=4>4</div>
       <div id="five" class="number btn" data-value=5>5</div>
       <div id="six" class="number btn" data-value=6>6</div>
-      <div id="plus" class="btn">+</div>
+      <div id="add" class="btn op" data-value="add">+</div>
       <div id="one" class="number btn" data-value=1>1</div>
       <div id="two" class="number btn" data-value=2>2</div>
       <div id="three" class="number btn" data-value=3>3</div>
