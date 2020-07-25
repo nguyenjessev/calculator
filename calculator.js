@@ -67,6 +67,13 @@ function clear() {
   updateScreen();
 }
 
+function addDecimal() {
+  let result = currentValue + '.';
+  if (isNaN(result)) result = currentValue;
+  currentValue = result;
+  updateScreen();
+}
+
 const numButtons = document.querySelectorAll('.number');
 numButtons.forEach(btn => {
   btn.addEventListener('click', e => {
@@ -78,7 +85,6 @@ const opButtons = document.querySelectorAll('.op');
 opButtons.forEach(btn => {
   btn.addEventListener('click', e => {
     if (pendingOperation) {
-      console.log(`Pending operation is ${pendingOperation}`);
       operate(pendingOperation, memory, currentValue);
     }
     pendingOperation = btn.dataset.value;
@@ -90,6 +96,11 @@ opButtons.forEach(btn => {
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', e => {
   clear();
+});
+
+const decimalButton = document.querySelector('#decimal');
+decimalButton.addEventListener('click', e => {
+  addDecimal();
 });
 
 let memory = 0;
