@@ -29,9 +29,35 @@ function operate(operation, num1, num2) {
   }
 }
 
+function numInput(num) {
+  currentValue += num.toString();
+  currentValue = Number(currentValue);
+  updateScreen();
+}
+
+function updateScreen() {
+  if (currentValue.toString().length > 9) {
+    currentValue = Number(currentValue.toString().slice(0, 9));
+  }
+  const screen = document.querySelector('#screen');
+  screen.textContent = currentValue;
+}
+
 const numButtons = document.querySelectorAll('.number');
 numButtons.forEach(btn => {
+  btn.addEventListener('click', e => {
+    numInput(btn.dataset.value);
+  })
+})
+
+const opButtons = document.querySelectorAll('.op');
+opButtons.forEach(btn => {
   btn.addEventListener('click', e => {
     console.log(`You clicked ${btn.dataset.value}`);
   })
 })
+
+let memory = 0;
+let currentValue = 0;
+
+updateScreen();
