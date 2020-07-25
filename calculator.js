@@ -41,6 +41,7 @@ function operate(operation, num1, num2) {
     clear();
     return;
   }
+  result = Math.min(result, 999999999);
   currentValue = result;
   pendingOperation = '';
   updateScreen();
@@ -52,7 +53,7 @@ function numInput(num) {
   updateScreen();
 }
 
-function updateScreen() {
+function updateScreen(value) {
   if (currentValue.toString().length > 9) {
     currentValue = Number(currentValue.toString().slice(0, 9));
   }
@@ -64,6 +65,14 @@ function clear() {
   memory = 0;
   currentValue = 0;
   pendingOperation = '';
+  updateScreen();
+}
+
+function backspace() {
+  let result = currentValue.toString();
+  result = result.slice(0, result.length-1);
+  if (result === '') result = 0;
+  currentValue = Number(result);
   updateScreen();
 }
 
@@ -97,6 +106,11 @@ const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', e => {
   clear();
 });
+
+const backspaceButton = document.querySelector('#backspace');
+backspaceButton.addEventListener('click', e => {
+  backspace();
+})
 
 const decimalButton = document.querySelector('#decimal');
 decimalButton.addEventListener('click', e => {

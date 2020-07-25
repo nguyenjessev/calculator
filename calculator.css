@@ -14,7 +14,7 @@ body {
   grid-template-rows: repeat(6, 1fr);
   grid-template-areas:
     'screen screen screen screen'
-    'clear clear divide multiply'
+    'clear backspace divide multiply'
     'seven eight nine minus'
     'four five six plus'
     'one two three enter'
@@ -51,7 +51,10 @@ body {
 }
 
 #clear {
-  grid-area: clear;
+  background: hsl(80, 50%, 60%);
+}
+
+#backspace {
   background: hsl(80, 50%, 60%);
 }
 
