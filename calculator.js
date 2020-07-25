@@ -11,22 +11,39 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
+  if (num2 === 0) {
+    alert(`You can't divide by zero!`);
+    return;
+  }
   return num1 / num2;
 }
 
 function operate(operation, num1, num2) {
+  let result = 0;
   switch(operation) {
     case 'add':
-      return add(num1, num2);
+      result = add(num1, num2);
+      break;
     case 'subtract':
-      return subtract(num1, num2);
+      result = subtract(num1, num2);
+      break;
     case 'multiply':
-      return multiply(num1, num2);
+      result =  multiply(num1, num2);
+      break;
     case 'divide':
-      return divide(num1, num2);
+      result = divide(num1, num2);
+      break;
     default:
       alert('Invalid operation');
   }
+
+  if(!result) {
+    clear();
+    return;
+  }
+  currentValue = result;
+  pendingOperation = '';
+  updateScreen();
 }
 
 function numInput(num) {
@@ -43,21 +60,40 @@ function updateScreen() {
   screen.textContent = currentValue;
 }
 
+function clear() {
+  memory = 0;
+  currentValue = 0;
+  pendingOperation = '';
+  updateScreen();
+}
+
 const numButtons = document.querySelectorAll('.number');
 numButtons.forEach(btn => {
   btn.addEventListener('click', e => {
     numInput(btn.dataset.value);
-  })
-})
+  });
+});
 
 const opButtons = document.querySelectorAll('.op');
 opButtons.forEach(btn => {
   btn.addEventListener('click', e => {
-    console.log(`You clicked ${btn.dataset.value}`);
-  })
-})
+    if (pendingOperation) {
+      console.log(`Pending operation is ${pendingOperation}`);
+      operate(pendingOperation, memory, currentValue);
+    }
+    pendingOperation = btn.dataset.value;
+    memory = currentValue;
+    currentValue = 0;
+  });
+});
+
+const clearButton = document.querySelector('#clear');
+clearButton.addEventListener('click', e => {
+  clear();
+});
 
 let memory = 0;
 let currentValue = 0;
+let pendingOperation = '';
 
 updateScreen();
